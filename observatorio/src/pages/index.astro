@@ -1,0 +1,101 @@
+---
+// Aquí va la lógica de Astro (por ahora vacío)
+---
+
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Púlsar - Descubre Joyas Indie</title>
+    <style>
+        /* Nuestra paleta de colores espaciales oficial */
+        :root {
+            --el-vacio: #0B0C10; /* Gris espacial casi negro */
+            --el-pulso: #66FCF1; /* Cian neón brillante */
+            --la-nebulosa: #45A29E; /* Verde azulado / profundo */
+            --texto-claro: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--el-vacio);
+            color: var(--texto-claro);
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Esqueleto de la Consola de Navegación */
+        header {
+            border-bottom: 2px solid var(--la-nebulosa);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--el-pulso);
+            margin: 0;
+        }
+
+        /* Esqueleto del Escáner Principal (Hero) */
+        .hero {
+            background-color: #1a1c23; /* Un gris un poco más claro para resaltar */
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--la-nebulosa);
+        }
+
+        .btn-primario {
+            background-color: var(--el-pulso);
+            color: var(--el-vacio);
+            padding: 10px 20px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Esqueleto del Cuadrante de Descubrimiento */
+        .grid-juegos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .tarjeta-juego {
+            border: 1px solid var(--la-nebulosa);
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[ PÚLSAR ]</h1>
+        <p>Radar de Joyas Indie</p>
+    </header>
+
+    <section class="hero">
+        <h2>Joya Destacada de la Semana</h2>
+        <p>Nuestra IA (El Pulso) ha detectado anomalías de alta calidad en este título.</p>
+        <button class="btn-primario">Explorar Metadatos</button>
+    </section>
+
+    <section class="grid-juegos">
+        <div class="tarjeta-juego">
+            <h3 style="color: var(--el-pulso);">Juego Indie 1</h3>
+            <p>Metroidvania oscuro...</p>
+        </div>
+        <div class="tarjeta-juego">
+            <h3 style="color: var(--el-pulso);">Juego Indie 2</h3>
+            <p>RPG Táctico por turnos...</p>
+        </div>
+        <div class="tarjeta-juego">
+            <h3 style="color: var(--el-pulso);">Juego Indie 3</h3>
+            <p>Simulador de granja espacial...</p>
+        </div>
+    </section>
+
+</body>
+</html>
