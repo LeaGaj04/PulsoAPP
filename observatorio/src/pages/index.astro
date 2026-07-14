@@ -1,101 +1,139 @@
 ---
-// Aquí va la lógica de Astro (por ahora vacío)
+// PÚLSAR - NEO ESPORTS (VERSIÓN MORADO CYBERPUNK EXTENDIDA)
 ---
-
 <html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Púlsar - Descubre Joyas Indie</title>
+    <title>Púlsar - Descubrimiento Indie</title>
     <style>
-        /* Nuestra paleta de colores espaciales oficial */
         :root {
-            --el-vacio: #0B0C10; /* Gris espacial casi negro */
-            --el-pulso: #66FCF1; /* Cian neón brillante */
-            --la-nebulosa: #45A29E; /* Verde azulado / profundo */
-            --texto-claro: #FFFFFF;
+            --fondo: #0D0D0D; 
+            --texto: #FFFFFF;
+            --texto-dim: #888888;
+            --acento: #B026FF; /* Morado Neón */
+            --tarjeta: #1A1A1A; 
+            --borde: #333333;
         }
+        
+        body { margin: 0; font-family: 'Arial Black', Impact, sans-serif; background: var(--fondo); color: var(--texto); text-transform: uppercase; overflow-x: hidden; }
+        
+        /* SCROLLBAR PERSONALIZADO */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--fondo); }
+        ::-webkit-scrollbar-thumb { background: var(--tarjeta); border: 1px solid var(--acento); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--acento); }
 
-        body {
-            background-color: var(--el-vacio);
-            color: var(--texto-claro);
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+        /* NAVEGACIÓN */
+        header { position: sticky; top: 0; background: rgba(13, 13, 13, 0.9); padding: 20px 40px; z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--acento); backdrop-filter: blur(10px); }
+        .logo { font-size: 1.8rem; text-shadow: 0 0 15px rgba(176, 38, 255, 0.8); margin: 0; color: var(--texto); letter-spacing: 2px; }
+        .search { background: transparent; border: 2px solid var(--borde); padding: 12px 20px; color: var(--texto); width: 300px; text-transform: uppercase; font-weight: bold; transition: all 0.3s; }
+        .search:focus { border-color: var(--acento); outline: none; box-shadow: 0 0 15px rgba(176, 38, 255, 0.4); }
+        
+        /* HERO SECTION */
+        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 60px; background: linear-gradient(to top, var(--fondo) 10%, transparent), url('https://picsum.photos/1920/1080?random=100') center/cover; border-bottom: 5px solid var(--tarjeta); }
+        .hero-tag { display: inline-block; background: var(--acento); color: var(--texto); padding: 5px 10px; font-size: 1rem; margin-bottom: 15px; width: max-content; box-shadow: 0 0 15px rgba(176, 38, 255, 0.5); }
+        .hero h1 { font-size: 5rem; margin: 0 0 20px 0; color: white; text-shadow: 4px 4px 0px #000; letter-spacing: -2px; line-height: 1; }
+        .btn-wishlist { background: var(--acento); color: var(--texto); border: none; padding: 15px 40px; font-weight: bold; cursor: pointer; font-size: 1.2rem; transition: all 0.2s; width: max-content; box-shadow: 0 0 20px rgba(176, 38, 255, 0.4); }
+        .btn-wishlist:hover { background: var(--texto); color: var(--fondo); box-shadow: 0 0 30px rgba(255, 255, 255, 0.6); transform: scale(1.05); }
 
-        /* Esqueleto de la Consola de Navegación */
-        header {
-            border-bottom: 2px solid var(--la-nebulosa);
-            padding: 20px;
-            text-align: center;
-        }
+        /* TÍTULOS DE SECCIÓN */
+        .section-title { padding: 40px 40px 10px 40px; font-size: 2rem; color: var(--texto); display: flex; align-items: center; gap: 15px; margin: 0; }
+        .section-title::before { content: ''; display: block; width: 20px; height: 20px; background: var(--acento); box-shadow: 0 0 10px var(--acento); }
 
-        header h1 {
-            color: var(--el-pulso);
-            margin: 0;
-        }
+        /* GRILLAS Y TARJETAS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; padding: 20px 40px 60px 40px; }
+        .card { background: var(--tarjeta); overflow: hidden; border: 1px solid var(--borde); border-left: 5px solid transparent; transition: all 0.3s; display: flex; flex-direction: column; }
+        .card:hover { border-left-color: var(--acento); transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 15px rgba(176, 38, 255, 0.2); border-color: #444; }
+        .card img { width: 100%; height: 180px; object-fit: cover; filter: grayscale(60%) contrast(120%); transition: filter 0.4s; }
+        .card:hover img { filter: grayscale(0%) contrast(100%); }
+        .card-content { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.3rem; letter-spacing: 1px; }
+        .card .tags { font-size: 0.8rem; color: var(--texto-dim); margin-bottom: 15px; }
+        .card .precio { color: var(--acento); font-family: monospace; font-size: 1.5rem; text-shadow: 0 0 8px rgba(176, 38, 255, 0.4); margin: 0; }
 
-        /* Esqueleto del Escáner Principal (Hero) */
-        .hero {
-            background-color: #1a1c23; /* Un gris un poco más claro para resaltar */
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--la-nebulosa);
-        }
+        /* SECCIÓN DEVLOGS (LA NEBULOSA) */
+        .devlogs-container { background: #111; padding: 40px; border-top: 1px dashed var(--borde); border-bottom: 1px dashed var(--borde); }
+        .devlog-card { background: var(--fondo); border: 1px solid var(--acento); padding: 25px; margin-bottom: 20px; box-shadow: 4px 4px 0px var(--acento); }
+        .devlog-card h4 { margin: 0 0 10px 0; font-size: 1.5rem; color: var(--acento); }
+        .devlog-card p { font-family: sans-serif; text-transform: none; color: #CCC; line-height: 1.6; font-size: 1.1rem; margin: 0; }
+        .devlog-date { font-family: monospace; color: var(--texto-dim); font-size: 0.9rem; margin-bottom: 15px; display: block; }
 
-        .btn-primario {
-            background-color: var(--el-pulso);
-            color: var(--el-vacio);
-            padding: 10px 20px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-        }
+        /* FOOTER */
+        footer { background: var(--tarjeta); padding: 60px 40px; text-align: center; border-top: 5px solid var(--acento); }
+        footer h2 { font-size: 3rem; margin: 0 0 20px 0; color: var(--borde); }
+        footer p { font-family: sans-serif; text-transform: none; color: var(--texto-dim); }
 
-        /* Esqueleto del Cuadrante de Descubrimiento */
-        .grid-juegos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 40px;
-        }
-
-        .tarjeta-juego {
-            border: 1px solid var(--la-nebulosa);
-            padding: 20px;
-            border-radius: 8px;
-        }
+        /* ANIMACIONES SCROLL */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.6s cubic-bezier(0.1, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>[ PÚLSAR ]</h1>
-        <p>Radar de Joyas Indie</p>
+        <h2 class="logo">[ PÚLSAR ]</h2>
+        <input type="text" class="search" placeholder="ESCANEAR CATÁLOGO...">
     </header>
-
+    
     <section class="hero">
-        <h2>Joya Destacada de la Semana</h2>
-        <p>Nuestra IA (El Pulso) ha detectado anomalías de alta calidad en este título.</p>
-        <button class="btn-primario">Explorar Metadatos</button>
+        <div class="hero-tag">🔥 ANOMALÍA DETECTADA - #1 WISHLIST</div>
+        <h1>SOMBRAS DEL<br>VACÍO</h1>
+        <button class="btn-wishlist">INICIAR EXTRACCIÓN // 19.99 CRD</button>
     </section>
 
-    <section class="grid-juegos">
-        <div class="tarjeta-juego">
-            <h3 style="color: var(--el-pulso);">Juego Indie 1</h3>
-            <p>Metroidvania oscuro...</p>
-        </div>
-        <div class="tarjeta-juego">
-            <h3 style="color: var(--el-pulso);">Juego Indie 2</h3>
-            <p>RPG Táctico por turnos...</p>
-        </div>
-        <div class="tarjeta-juego">
-            <h3 style="color: var(--el-pulso);">Juego Indie 3</h3>
-            <p>Simulador de granja espacial...</p>
-        </div>
+    <h2 class="section-title reveal">ESCÁNER GENERAL</h2>
+    <section class="grid">
+        <div class="card reveal"><img src="https://picsum.photos/400/300?random=201"><div class="card-content"><div><h3>Neon Drifter</h3><div class="tags">ACCION // CYBERPUNK</div></div><p class="precio">14.99 CRD</p></div></div>
+        <div class="card reveal" style="transition-delay: 0.1s;"><img src="https://picsum.photos/400/300?random=202"><div class="card-content"><div><h3>Starseed</h3><div class="tags">ESTRATEGIA // ESPACIAL</div></div><p class="precio">9.99 CRD</p></div></div>
+        <div class="card reveal" style="transition-delay: 0.2s;"><img src="https://picsum.photos/400/300?random=203"><div class="card-content"><div><h3>Pixel Farm</h3><div class="tags">SIMULADOR // CASUAL</div></div><p class="precio">19.99 CRD</p></div></div>
+        <div class="card reveal" style="transition-delay: 0.3s;"><img src="https://picsum.photos/400/300?random=204"><div class="card-content"><div><h3>Redemption</h3><div class="tags">HORROR // SURVIVAL</div></div><p class="precio">12.50 CRD</p></div></div>
     </section>
 
+    <h2 class="section-title reveal" style="color: var(--acento);">EL PULSO: JOYAS OCULTAS</h2>
+    <p class="reveal" style="padding: 0 40px; font-family: sans-serif; text-transform: none; color: var(--texto-dim);">Nuestra Inteligencia Artificial ha cruzado las valoraciones para encontrar estos títulos de nicho que encajan con tu perfil.</p>
+    <section class="grid">
+        <div class="card reveal"><img src="https://picsum.photos/400/300?random=205"><div class="card-content"><div><h3>Hollow Protocol</h3><div class="tags">METROIDVANIA // DARK</div></div><p class="precio">15.00 CRD</p></div></div>
+        <div class="card reveal" style="transition-delay: 0.1s;"><img src="https://picsum.photos/400/300?random=206"><div class="card-content"><div><h3>Cyber Quest</h3><div class="tags">RPG // PIXEL-ART</div></div><p class="precio">8.99 CRD</p></div></div>
+        <div class="card reveal" style="transition-delay: 0.2s;"><img src="https://picsum.photos/400/300?random=207"><div class="card-content"><div><h3>Lost Ruins</h3><div class="tags">PUZZLE // ATMOSFÉRICO</div></div><p class="precio">11.99 CRD</p></div></div>
+        <div class="card reveal" style="transition-delay: 0.3s;"><img src="https://picsum.photos/400/300?random=208"><div class="card-content"><div><h3>Skyward</h3><div class="tags">AVENTURA // VUELO</div></div><p class="precio">22.00 CRD</p></div></div>
+    </section>
+
+    <div class="devlogs-container">
+        <h2 class="section-title reveal" style="padding: 0 0 20px 0; color: white;">TRANSMISIONES DE DESARROLLADORES</h2>
+        
+        <div class="devlog-card reveal">
+            <span class="devlog-date">SISTEMA: NEON DRIFTER // FECHA ESTELAR: 2026.07.13</span>
+            <h4>REDISEÑO DEL SISTEMA DE DERRAPES</h4>
+            <p>Hemos pasado las últimas 40 horas ajustando las físicas de los vehículos. Ahora, al realizar un derrape perfecto en las esquinas de neón, el multiplicador de puntos se acumula un 15% más rápido. Gracias a los que dejaron su feedback en los foros.</p>
+        </div>
+
+        <div class="devlog-card reveal">
+            <span class="devlog-date">SISTEMA: HOLLOW PROTOCOL // FECHA ESTELAR: 2026.07.10</span>
+            <h4>NUEVO JEFE: EL VIGILANTE DEL ABISMO</h4>
+            <p>La actualización 1.2 ya está aquí. Hemos añadido una nueva zona secreta bajo el mapa principal. Advertencia: los patrones de ataque de este nuevo jefe cambian según la cantidad de curaciones que lleves en el inventario. ¡Buena suerte!</p>
+        </div>
+    </div>
+
+    <footer class="reveal">
+        <h2>[ PÚLSAR_ ]</h2>
+        <p>CONECTANDO EL UNIVERSO INDIE DESDE 2026</p>
+        <div style="margin-top: 20px; font-family: monospace; color: var(--acento);">
+            <span>SISTEMAS ONLINE</span> // <span>IA ACTIVA</span> // <span>CONEXIÓN SEGURA</span>
+        </div>
+    </footer>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 }); // El elemento debe asomarse un 15% para animarse
+        
+        reveals.forEach(reveal => observer.observe(reveal));
+    </script>
 </body>
 </html>
