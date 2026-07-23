@@ -82,58 +82,128 @@
         <button class="btn-wishlist">INICIAR EXTRACCIÓN // 19.99 CRD</button>
     </section>
 
-    <h2 class="section-title reveal">ESCÁNER GENERAL</h2>
-    <section class="grid">
+    <h2 class="section-title reveal">ESCÁNER GENERAL (CATÁLOGO EN VIVO)</h2>
+    <section class="grid" id="catalogo-grid">
         <div class="card reveal"><img src="https://picsum.photos/400/300?random=201"><div class="card-content"><div><h3>Neon Drifter</h3><div class="tags">ACCION // CYBERPUNK</div></div><p class="precio">14.99 CRD</p></div></div>
         <div class="card reveal" style="transition-delay: 0.1s;"><img src="https://picsum.photos/400/300?random=202"><div class="card-content"><div><h3>Starseed</h3><div class="tags">ESTRATEGIA // ESPACIAL</div></div><p class="precio">9.99 CRD</p></div></div>
         <div class="card reveal" style="transition-delay: 0.2s;"><img src="https://picsum.photos/400/300?random=203"><div class="card-content"><div><h3>Pixel Farm</h3><div class="tags">SIMULADOR // CASUAL</div></div><p class="precio">19.99 CRD</p></div></div>
         <div class="card reveal" style="transition-delay: 0.3s;"><img src="https://picsum.photos/400/300?random=204"><div class="card-content"><div><h3>Redemption</h3><div class="tags">HORROR // SURVIVAL</div></div><p class="precio">12.50 CRD</p></div></div>
     </section>
 
-    <h2 class="section-title reveal" style="color: var(--acento);">EL PULSO: JOYAS OCULTAS</h2>
-    <p class="reveal" style="padding: 0 40px; font-family: sans-serif; text-transform: none; color: var(--texto-dim);">Nuestra Inteligencia Artificial ha cruzado las valoraciones para encontrar estos títulos de nicho que encajan con tu perfil.</p>
-    <section class="grid">
-        <div class="card reveal"><img src="https://picsum.photos/400/300?random=205"><div class="card-content"><div><h3>Hollow Protocol</h3><div class="tags">METROIDVANIA // DARK</div></div><p class="precio">15.00 CRD</p></div></div>
-        <div class="card reveal" style="transition-delay: 0.1s;"><img src="https://picsum.photos/400/300?random=206"><div class="card-content"><div><h3>Cyber Quest</h3><div class="tags">RPG // PIXEL-ART</div></div><p class="precio">8.99 CRD</p></div></div>
-        <div class="card reveal" style="transition-delay: 0.2s;"><img src="https://picsum.photos/400/300?random=207"><div class="card-content"><div><h3>Lost Ruins</h3><div class="tags">PUZZLE // ATMOSFÉRICO</div></div><p class="precio">11.99 CRD</p></div></div>
-        <div class="card reveal" style="transition-delay: 0.3s;"><img src="https://picsum.photos/400/300?random=208"><div class="card-content"><div><h3>Skyward</h3><div class="tags">AVENTURA // VUELO</div></div><p class="precio">22.00 CRD</p></div></div>
+    <h2 class="section-title reveal" style="color: var(--acento);">EL PULSO: JOYAS OCULTAS (EL NÚCLEO + LA NEBULOSA)</h2>
+    <p class="reveal" style="padding: 0 40px; font-family: sans-serif; text-transform: none; color: var(--texto-dim);">Nuestra Inteligencia Artificial cruza PostgreSQL y MongoDB en tiempo real a través de El Puente para encontrar estos títulos.</p>
+    <section class="grid" id="joyas-grid">
+        <div class="card reveal"><div class="card-content"><h3>CARGANDO DATOS REALES DE EL PULSO...</h3></div></div>
     </section>
 
     <div class="devlogs-container">
-        <h2 class="section-title reveal" style="padding: 0 0 20px 0; color: white;">TRANSMISIONES DE DESARROLLADORES</h2>
-        
-        <div class="devlog-card reveal">
-            <span class="devlog-date">SISTEMA: NEON DRIFTER // FECHA ESTELAR: 2026.07.13</span>
-            <h4>REDISEÑO DEL SISTEMA DE DERRAPES</h4>
-            <p>Hemos pasado las últimas 40 horas ajustando las físicas de los vehículos. Ahora, al realizar un derrape perfecto en las esquinas de neón, el multiplicador de puntos se acumula un 15% más rápido. Gracias a los que dejaron su feedback en los foros.</p>
-        </div>
-
-        <div class="devlog-card reveal">
-            <span class="devlog-date">SISTEMA: HOLLOW PROTOCOL // FECHA ESTELAR: 2026.07.10</span>
-            <h4>NUEVO JEFE: EL VIGILANTE DEL ABISMO</h4>
-            <p>La actualización 1.2 ya está aquí. Hemos añadido una nueva zona secreta bajo el mapa principal. Advertencia: los patrones de ataque de este nuevo jefe cambian según la cantidad de curaciones que lleves en el inventario. ¡Buena suerte!</p>
+        <h2 class="section-title reveal" style="padding: 0 0 20px 0; color: white;">TRANSMISIONES DE DESARROLLADORES (LA NEBULOSA)</h2>
+        <div id="devlogs-list">
+            <div class="devlog-card reveal">
+                <span class="devlog-date">SISTEMA: NEON DRIFTER // FECHA ESTELAR: 2026.07.13</span>
+                <h4>REDISEÑO DEL SISTEMA DE DERRAPES</h4>
+                <p>Hemos pasado las últimas 40 horas ajustando las físicas de los vehículos. Ahora, al realizar un derrape perfecto en las esquinas de neón, el multiplicador de puntos se acumula un 15% más rápido.</p>
+            </div>
         </div>
     </div>
 
     <footer class="reveal">
         <h2>[ PÚLSAR_ ]</h2>
         <p>CONECTANDO EL UNIVERSO INDIE DESDE 2026</p>
-        <div style="margin-top: 20px; font-family: monospace; color: var(--acento);">
-            <span>SISTEMAS ONLINE</span> // <span>IA ACTIVA</span> // <span>CONEXIÓN SEGURA</span>
+        <div style="margin-top: 20px; font-family: monospace; color: var(--acento);" id="api-status">
+            <span>EL PUENTE: CONECTANDO...</span> // <span>IA ACTIVA</span> // <span>CONEXIÓN SEGURA</span>
         </div>
     </footer>
 
     <script>
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+        const API_BASE = "http://127.0.0.1:8000/api/v1";
+
+        // Sistema Intersection Observer para animaciones scroll
+        function initObserver() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.15 });
+            
+            reveals.forEach(reveal => observer.observe(reveal));
+        }
+
+        // Carga de datos reales desde El Puente (FastAPI)
+        async function cargarDatosPuente() {
+            const statusEl = document.getElementById('api-status');
+            const joyasGrid = document.getElementById('joyas-grid');
+            const devlogsList = document.getElementById('devlogs-list');
+
+            try {
+                // Check de Salud
+                const healthRes = await fetch(`${API_BASE}/health`);
+                if (healthRes.ok) {
+                    statusEl.innerHTML = `<span style="color: #00FF66;">EL PUENTE: ONLINE (POSTGRES OK | MONGO OK)</span> // <span>IA ACTIVA</span>`;
                 }
-            });
-        }, { threshold: 0.15 }); // El elemento debe asomarse un 15% para animarse
-        
-        reveals.forEach(reveal => observer.observe(reveal));
+
+                // Cargar Catálogo Cruzado
+                const radarRes = await fetch(`${API_BASE}/radar`);
+                if (radarRes.ok) {
+                    const data = await radarRes.json();
+                    if (data.juegos && data.juegos.length > 0) {
+                        joyasGrid.innerHTML = '';
+                        data.juegos.forEach((juego, index) => {
+                            const tagsHtml = juego.etiquetas.join(' // ');
+                            const cardHtml = `
+                                <div class="card reveal active" style="transition-delay: ${index * 0.1}s; border-color: var(--acento);">
+                                    <img src="https://picsum.photos/400/300?random=${200 + index}">
+                                    <div class="card-content">
+                                        <div>
+                                            <h3 style="color: var(--acento);">${juego.titulo}</h3>
+                                            <div class="tags">${tagsHtml.toUpperCase()} // ${juego.plataforma}</div>
+                                            <p style="font-family: sans-serif; text-transform: none; color: #BBB; font-size: 0.9rem; margin-top: 10px;">${juego.descripcion}</p>
+                                        </div>
+                                        <p class="precio">${juego.precio}</p>
+                                    </div>
+                                </div>
+                            `;
+                            joyasGrid.innerHTML += cardHtml;
+                        });
+                    }
+                }
+
+                // Cargar DevLogs desde La Nebulosa
+                const devlogsRes = await fetch(`${API_BASE}/devlogs`);
+                if (devlogsRes.ok) {
+                    const devData = await devlogsRes.json();
+                    if (devData.transmisiones && devData.transmisiones.length > 0) {
+                        devlogsList.innerHTML = '';
+                        devData.transmisiones.forEach((log) => {
+                            const devlogHtml = `
+                                <div class="devlog-card reveal active">
+                                    <span class="devlog-date">SISTEMA: EL PULSO // FECHA ESTELAR: ${log.fecha}</span>
+                                    <h4>${log.titulo.toUpperCase()}</h4>
+                                    <p>${log.contenido}</p>
+                                </div>
+                            `;
+                            devlogsList.innerHTML += devlogHtml;
+                        });
+                    }
+                }
+
+            } catch (err) {
+                console.warn("API de El Puente fuera de línea o cargando datos locales fallback:", err);
+                if (statusEl) {
+                    statusEl.innerHTML = `<span style="color: #FF3366;">EL PUENTE: OFFLINE (MODO STANDALONE)</span> // <span>IA ACTIVA</span>`;
+                }
+            } finally {
+                initObserver();
+            }
+        }
+
+        // Ejecución inicial
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarDatosPuente();
+        });
     </script>
 </body>
 </html>
